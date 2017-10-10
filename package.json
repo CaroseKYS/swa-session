@@ -1,0 +1,19 @@
+{
+  "name": "swa-session",
+  "version": "1.0.0",
+  "description": "应用于swa平台的、基于express框架的session处理中间件。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaroseKYS/swa-session.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CaroseKYS/swa-session/issues"
+  },
+  "homepage": "https://github.com/CaroseKYS/swa-session#readme"
+}
