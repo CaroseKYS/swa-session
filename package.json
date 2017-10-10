@@ -4,7 +4,7 @@
   "description": "应用于swa平台的、基于express框架的session处理中间件。",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -report html"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,20 @@
   "bugs": {
     "url": "https://github.com/CaroseKYS/swa-session/issues"
   },
-  "homepage": "https://github.com/CaroseKYS/swa-session#readme"
+  "homepage": "https://github.com/CaroseKYS/swa-session#readme",
+  "devDependencies": {
+    "mocha": "~2.5.2",
+    "should": "~11.1.1",
+    "istanbul": "~0.4.5",
+    "rewire": "^2.5.2",
+    "node-mocks-http": "~1.5.4"
+  },
+  "dependencies": {
+    "session-file-store": "~0.2.0",
+    "connect-redis": "~2.5.1",
+    "express-session": "~1.13.0",
+    "swa-logger": "~1",
+    "swa-utils": "~1",
+    "babel-polyfill": "~6.26.0"
+  }
 }
