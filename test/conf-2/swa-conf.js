@@ -29,7 +29,7 @@ module.exports = {
     //cookie信息
     'cookie': {
       //cookie对应的domain属性值，false表示不带domain属性
-      'domain': '.leshui365.com',
+      'domain': '.intermen.cn',
 
       //cookie对应的path属性值，默认为根目录'/'
       'path': '/', 

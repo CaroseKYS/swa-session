@@ -18,7 +18,7 @@ const sessionDefaultOptions = {
   proxy  : undefined,
   resave : true,
   rolling: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   secret : ',Q%k0[zixEo[Q4q$rcEZ0qY(xcoC%jO(',
   // store : null
   unset  : 'destroy',

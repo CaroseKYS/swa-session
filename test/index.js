@@ -1,13 +1,12 @@
-var assert = require('assert');
-var rewire = require('rewire');
-var should = require('should');
-var path = require('path');
-var fs = require('fs');
-var httpmock = require('node-mocks-http');
-var events = require('events');
+const rewire   = require('rewire');
+const should   = require('should');
+const path     = require('path');
+const fs       = require('fs');
+const httpmock = require('node-mocks-http');
+const events   = require('events');
 
-var sIndexPath = path.join(__dirname, '..', 'index.js');
-var session;
+const sIndexPath = path.join(__dirname, '..', 'index.js');
+var   session;
 
 describe('swa-session 中间件测试', function(){
 
@@ -29,11 +28,16 @@ describe('swa-session 中间件测试', function(){
     });
 
     it('没有指定根目录的情况下加载模块并对中间件进行一次调用', function(done){
+      var session1, session2;
       should.doesNotThrow(function(){
-        session = rewire('../index.js')();
+        session1 = require('../index.js')();
+        session2 = require('../index.js')();
+        session  = session1;
         session(req, res, done);
         res.end();
       });
+
+      session1.should.equal(session2);
     });
 
     it('指定根目录的情况下加载模块并对中间件进行一次调用', function(done){
@@ -66,7 +70,7 @@ describe('swa-session 中间件测试', function(){
 
   });
 
-  describe('非环境测试', function(){
+  describe('非开发环境测试', function(){
     var req;
     var res;
 
@@ -103,5 +107,13 @@ describe('swa-session 中间件测试', function(){
         });
       });
     });
+
+    it('加载模块并对中间件进行一次调用(指定根目录)', function(){
+      process.env.NODE_SWA_ROOT = path.join(__dirname, 'conf-3');
+      should.throws(function(){
+        session = rewire('../index.js')();
+      });
+    });
+
   });
 });
